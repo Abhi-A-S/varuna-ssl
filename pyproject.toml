@@ -4,4 +4,16 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12.15"
-dependencies = []
+dependencies = ["kaggle>=2.2.4", "pillow>=13.0.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+download-dataset = "scripts.download_dataset:main"
+verify-images = "scripts.validate_images:main"
+analyze-dataset = "scripts.analyze_dataset:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
